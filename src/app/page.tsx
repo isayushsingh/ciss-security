@@ -53,7 +53,6 @@ export default function Home() {
         <nav className="container">
           <div className="logo cursor-pointer" onClick={() => scrollToSection('home')}>
              <img src="/assets/logo.avif" alt="CISS Logo" style={{height: '50px'}} />
-             <span>CISS KANPUR</span>
           </div>
           <button 
             className="nav-toggle" 
@@ -121,7 +120,7 @@ export default function Home() {
             {/* Hero Visual/Image Logic */}
             <div className="hero-visual" style={{position: 'relative'}}>
                 <div style={{
-                    width: '100%', 
+                    width: '100%',
                     height: '500px', 
                     background: 'url(/assets/logo.avif) no-repeat center',
                     backgroundSize: 'contain',
