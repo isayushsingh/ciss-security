@@ -17,8 +17,16 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Civil Industrial Security Services Kanpur",
-  description: "Professional, reliable, and highly trained security services in Kanpur.",
+  title: "Civil Industrial Security Services (CISS) Kanpur | Top Security Agency",
+  description: "Leading security guard services in Kanpur offering armed guards, VIP protection, industrial security, and event management. 20+ years of trusted protection.",
+  keywords: ["security guards kanpur", "armed security services", "industrial security agency", "VIP protection kanpur", "CISS security", "private security company uttar pradesh"],
+  authors: [{ name: "CISS Kanpur" }],
+  openGraph: {
+    title: "Civil Industrial Security Services (CISS) Kanpur",
+    description: "Uncompromising security solutions led by Ex-Defense personnel. Armed guards, industrial safety, and VIP protection.",
+    type: "website",
+    locale: "en_IN",
+  },
 };
 
 export default function RootLayout({
