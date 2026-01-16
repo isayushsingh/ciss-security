@@ -6,7 +6,9 @@
   <title>Civil Industrial Security Services Kanpur</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,16 +21,19 @@
   <!-- Navbar -->
   <header>
     <nav>
-      <div class="logo"><img src="./assets/logo.avif"></div>
+      <div class="logo">
+        <a href="#home">
+          <img src="./assets/logo.avif" alt="CISS Logo">
+        </a>
+      </div>
       <button class="nav-toggle" aria-label="Open menu">
         <i class="fas fa-bars"></i>
       </button>
-      <ul>
+      <ul id="nav-menu">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#clients">Clients</a></li>
-        <li><a href="#work">Work With Us</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -36,19 +41,19 @@
 
   <!-- Hero -->
   <section id="home">
-    <div class="hero-content">
-    <img src="./assets/logo.avif" alt="Civil Industrial Security Services Logo">
-    <p><strong>Address:</strong> Hargovind Niwas, 128/558, K Block, Kidwai Nagar, Kanpur, Uttar Pradesh 208011</p>
-    <p><strong>Contact:</strong> +91 8417981064</p>
-  </div>
+    <img src="./assets/logo.avif" alt="CISS Logo Large">
+    <h1>Protecting Your World</h1>
+    <p>Professional, reliable, and highly trained security services in Kanpur.</p>
+    <div style="margin-top: 24px;">
+      <a href="#contact" style="background: var(--color-text-primary); color: white; padding: 16px 32px; border-radius: 32px; font-weight: 600;">Get a Quote</a>
+    </div>
   </section>
 
   <!-- About -->
   <section id="about">
-    <h2>Security Solutions For Every Need</h2>
-    <p>Established in 19xx by ex-Indian Navy Officer <strong>Mr. S.P. Singh Rawat</strong> – Civil Industrial Security Services Kanpur has been a leader in providing security solutions.</p>
-    <p>With a workforce of highly trained, smartly uniformed and strictly supervised security guards, we aim to provide quality security services to the clients at the best price.</p>
-    <p>A meeting will enable us to demonstrate our professionalism and dedication in ensuring your life and assets are safe and secure.</p>
+    <h2>About Us</h2>
+    <p>Established by ex-Indian Navy Officer <strong>Mr. S.P. Singh Rawat</strong>, Civil Industrial Security Services (CISS) is a leader in comprehensive security solutions.</p>
+    <p>Our workforce is highly trained, smartly uniformed, and strictly supervised to ensure the safety of your assets and life. We pride ourselves on professionalism and dedication.</p>
   </section>
 
   <!-- Services -->
@@ -58,104 +63,86 @@
       <div class="card">
         <div class="icon"><i class="fas fa-user-shield"></i></div>
         <h3>Security Guards</h3>
-        <p>Professional security personnel protecting your property.</p>
+        <p>Professional personnel for commercial and private property protection.</p>
       </div>
       <div class="card">
-        <div class="icon"><i class="fas fa-gun"></i></div>
-        <h3>Armed Security Guards</h3>
-        <p>Trained armed guards ensuring high-level protection.</p>
+        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Armed Security</h3>
+        <p>Licensed armed guards for high-risk security requirements.</p>
       </div>
       <div class="card">
         <div class="icon"><i class="fas fa-crosshairs"></i></div>
         <h3>Gunman Services</h3>
-        <p>Expert gunmen for specialized armed security needs.</p>
+        <p>Expert gunmen trained for specialized defensive roles.</p>
       </div>
       <div class="card">
         <div class="icon"><i class="fas fa-user-tie"></i></div>
-        <h3>VIP and Executive</h3>
-        <p>Discreet and skilled protection for VIPs and executives.</p>
+        <h3>VIP Protection</h3>
+        <p>Discreet, elite protection for executives and VIPs.</p>
       </div>
       <div class="card">
         <div class="icon"><i class="fas fa-industry"></i></div>
         <h3>Industrial Security</h3>
-        <p>Comprehensive security solutions for industrial sites.</p>
+        <p>End-to-end security management for factories and industrial sites.</p>
       </div>
       <div class="card">
         <div class="icon"><i class="fas fa-home"></i></div>
-        <h3>Domestic Security</h3>
-        <p>Reliable home and residential security services.</p>
+        <h3>Residential Security</h3>
+        <p>24/7 safety for homes, apartments, and housing societies.</p>
       </div>
       <div class="card">
-        <div class="icon"><i class="fas fa-calendar-alt"></i></div>
-        <h3>Project and Events</h3>
-        <p>Security management for projects and special events.</p>
+        <div class="icon"><i class="fas fa-calendar-check"></i></div>
+        <h3>Event Security</h3>
+        <p>Crowd control and safety management for events and projects.</p>
       </div>
       <div class="card">
-        <div class="icon"><i class="fas fa-user-shield"></i></div>
-        <h3>Personal Body Guards</h3>
-        <p>Dedicated bodyguard protection for personal safety.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><i class="fas fa-user-check"></i></div>
-        <h3>Security Supervisors</h3>
-        <p>Experienced supervisors managing security teams efficiently.</p>
+        <div class="icon"><i class="fas fa-address-card"></i></div>
+        <h3>Join Our Team</h3>
+        <p>We are hiring guards and supervisors. <a href="#contact" style="text-decoration: underline;">Apply now.</a></p>
       </div>
     </div>
   </section>
 
   <!-- Clients -->
   <section id="clients">
-    <h2>Our Clients</h2>
-    <div class="clients">
-      
-      
-      
-      
-    </div>
+    <h2>Trusted By</h2>
+    <!-- Note: Placeholder images removed for cleaner code until real logos are provided. 
+         Using text grid or keeping it empty for now, or minimal placeholders. -->
     <div class="cards">
-      <div class="card">
-        <div class="client-card"><img src="placeholder1.jpg" alt="Client 1"></div>
-      </div>
-      <div class="card">
-        <div class="client-card"><img src="placeholder2.jpg" alt="Client 2"></div>
-      </div>
-      <div class="card">
-        <div class="client-card"><img src="placeholder3.jpg" alt="Client 3"></div>
-      </div>
-      <div class="card">
-        <div class="client-card"><img src="placeholder4.jpg" alt="Client 4"></div>
-      </div>
+       <div class="card" style="align-items: center; justify-content: center; min-height: 120px;">
+          <p><strong>Client Portfolio</strong></p>
+          <p style="font-size: 0.9rem;">Adding value to businesses across Kanpur</p>
+       </div>
     </div>
-  </section>
-
-  <!-- Work With Us -->
-  <section id="work">
-    <h2>Work With Us</h2>
-    <p>If you are interested in working as a guard, supervisor, or in other roles, please reach out to us with your details and experience.</p>
-    <p>Contact: <strong>+91 8417981064</strong></p>
   </section>
 
   <!-- Contact -->
   <section id="contact">
-    <h2>Contact Us</h2>
-    <form action="mailto:ayushs704@gmail.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="number" name="phone" placeholder="Your Phone Number">
-      <input type="email" name="email" placeholder="Your Email (Optional)">
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.8611501531186!2d80.3239663!3d26.427957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c470726cc4c77%3A0xbefac35b0bd3d1f!2sCivil%20Industrial%20Security%20Services!5e0!3m2!1sen!2sin!4v1755268105309!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="container" style="max-width: 800px; padding: 0;">
+      <h2>Contact Us</h2>
+      <p style="text-align: center; margin-bottom: 32px;">
+        <strong>Address:</strong> Hargovind Niwas, 128/558, K Block, Kidwai Nagar, Kanpur<br>
+        <strong>Phone:</strong> +91 8417981064
+      </p>
+      <form action="mailto:ayushs704@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="email" name="email" placeholder="Email (Optional)">
+        <textarea name="message" placeholder="How can we help?" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3572.8611501531186!2d80.3239663!3d26.427957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c470726cc4c77%3A0xbefac35b0bd3d1f!2sCivil%20Industrial%20Security%20Services!5e0!3m2!1sen!2sin!4v1755268105309!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Civil Industrial Security Services Kanpur. All Rights Reserved.
+    <p>&copy; 2025 Civil Industrial Security Services Kanpur. All Rights Reserved.</p>
   </footer>
 
   <!-- Floating CTA -->
   <div class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-    Request Quote
+    Quote
   </div>
 
   <!-- JS -->
