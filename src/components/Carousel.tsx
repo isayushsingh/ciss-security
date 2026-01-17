@@ -2,8 +2,52 @@
 
 import { useState, useEffect, useRef } from 'react';
 
-const IMAGES_COUNT = 15; // Assuming 15 images for now as placeholder
-const IMAGES = Array.from({ length: IMAGES_COUNT }, (_, i) => `/gallery/${i + 1}.png`);
+// Data Model for Bento-style Carousel
+interface CarouselItemData {
+  src: string;
+  title: string;
+  subtitle: string;
+  width: 'normal' | 'wide';
+}
+
+const CAROUSEL_ITEMS: CarouselItemData[] = [
+  {
+    src: '/gallery/1.png',
+    title: 'Industrial Protection',
+    subtitle: 'Comprehensive perimeter security for large-scale facilities.',
+    width: 'wide',
+  },
+  {
+    src: '/gallery/2.png',
+    title: 'Manned Guarding',
+    subtitle: '24/7 on-site presence.',
+    width: 'normal',
+  },
+  {
+    src: '/gallery/3.png',
+    title: 'Event Security',
+    subtitle: 'Crowd control and VIP safety management.',
+    width: 'normal',
+  },
+  {
+    src: '/gallery/4.png',
+    title: 'Electronic Surveillance',
+    subtitle: 'Advanced monitoring systems integration.',
+    width: 'wide',
+  },
+  {
+    src: '/gallery/5.png',
+    title: 'Risk Assessment',
+    subtitle: 'Identifying vulnerabilities before they become threats.',
+    width: 'normal',
+  },
+  {
+      src: '/gallery/6.png',
+      title: 'Rapid Response',
+      subtitle: 'Immediate action mobile units.',
+      width: 'wide',
+    },
+];
 
 export default function Carousel() {
   const [isPaused, setIsPaused] = useState(false);
@@ -49,14 +93,14 @@ export default function Carousel() {
   const nextImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (selectedImageIndex !== null) {
-      setSelectedImageIndex((prev) => (prev !== null ? (prev + 1) % IMAGES.length : 0));
+      setSelectedImageIndex((prev) => (prev !== null ? (prev + 1) % CAROUSEL_ITEMS.length : 0));
     }
   };
 
   const prevImage = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (selectedImageIndex !== null) {
-      setSelectedImageIndex((prev) => (prev !== null ? (prev - 1 + IMAGES.length) % IMAGES.length : 0));
+      setSelectedImageIndex((prev) => (prev !== null ? (prev - 1 + CAROUSEL_ITEMS.length) % CAROUSEL_ITEMS.length : 0));
     }
   };
 
@@ -70,19 +114,22 @@ export default function Carousel() {
         onTouchEnd={() => setIsPaused(false)}
       >
         <div className="carousel-track" ref={scrollContainerRef}>
-          {/* Duplicate images to create seamless infinite scroll */}
-          {[...IMAGES, ...IMAGES].map((src, index) => {
-            // Map the extended index back to original image index
-            const originalIndex = index % IMAGES.length;
+          {/* Duplicate items to create seamless infinite scroll */}
+          {[...CAROUSEL_ITEMS, ...CAROUSEL_ITEMS, ...CAROUSEL_ITEMS].map((item, index) => {
+            // Map the extended index back to original item index
+            const originalIndex = index % CAROUSEL_ITEMS.length;
             return (
               <div 
                 key={index} 
-                className="carousel-item"
+                className={`carousel-item ${item.width}`}
                 onClick={() => openModal(originalIndex)}
               >
-                <img src={src} alt={`Gallery Image ${originalIndex + 1}`} loading="lazy" />
+                <img src={item.src} alt={item.title} loading="lazy" />
                 <div className="carousel-overlay">
-                    <i className="fas fa-expand-alt"></i>
+                    <div className="overlay-content">
+                        <h3>{item.title}</h3>
+                        <p>{item.subtitle}</p>
+                    </div>
                 </div>
               </div>
             );
@@ -103,8 +150,8 @@ export default function Carousel() {
             </button>
             
             <img 
-              src={IMAGES[selectedImageIndex]} 
-              alt={`Gallery Fullscreen ${selectedImageIndex + 1}`} 
+              src={CAROUSEL_ITEMS[selectedImageIndex].src} 
+              alt={CAROUSEL_ITEMS[selectedImageIndex].title}
             />
             
             <button className="lightbox-nav next" onClick={nextImage}>
@@ -113,10 +160,12 @@ export default function Carousel() {
           </div>
           
           <div className="lightbox-caption">
-            Image {selectedImageIndex + 1} of {IMAGES.length}
+            <h3>{CAROUSEL_ITEMS[selectedImageIndex].title}</h3>
+            <p>{CAROUSEL_ITEMS[selectedImageIndex].subtitle}</p>
           </div>
         </div>
       )}
     </>
   );
 }
+
