@@ -1,6 +1,94 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Carousel from '@/components/Carousel';
+
+const SERVICES_DATA = [
+    { 
+        title: "Industrial & Factory Security", 
+        icon: "fa-industry", 
+        description: "Industrial grade protection including gate management, material checks, and perimeter patrols.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Corporate & Office Security", 
+        icon: "fa-building", 
+        description: "Professional front-desk security and premises monitoring for corporate offices.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Residential & Apartment Security", 
+        icon: "fa-home", 
+        description: "24/7 safety for gated communities, apartments, and private residences.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Bank & ATM Security", 
+        icon: "fa-university", 
+        description: "High-level armed and unarmed security for financial institutions and ATMs.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Hotel & Hospitality Security", 
+        icon: "fa-hotel", 
+        description: "Guest safety, luggage scanning, and lobby management for hotels and restaurants.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "School & College Security", 
+        icon: "fa-school", 
+        description: "Safe and secure environment for students and staff in educational institutions.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Events & Wedding Security", 
+        icon: "fa-ring", 
+        description: "Crowd control, guest management, and VIP escorting for large events and weddings.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Bouncers & VIP Protection", 
+        icon: "fa-user-secret", 
+        description: "Trained bouncers for clubs, private parties, and personal security.", 
+        price: "Request Price" 
+    },
+    { 
+        title: "Cash Van Services", 
+        icon: "fa-truck-moving", 
+        description: "Secure cash-in-transit services with armed guards.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Women Security Guards", 
+        icon: "fa-female", 
+        description: "Specialized lady guards for frisking and female-staffed environments.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Ex-Servicemen Supervisors", 
+        icon: "fa-medal", 
+        description: "Experienced former service personnel for high-stakes security supervision.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Mall & Cinema Hall Security", 
+        icon: "fa-film", 
+        description: "Public area surveillance and crowd management.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    { 
+        title: "Construction & Property Security", 
+        icon: "fa-map-marked-alt", 
+        description: "Protection for construction sites, farm houses, and vacant properties.", 
+        price: "₹18K - ₹25K / month" 
+    },
+    {
+        title: "24/7 General Security Guard",
+        icon: "fa-user-shield",
+        description: "Round-the-clock security personnel for any general purpose requirement.",
+        price: "₹18K - ₹25K / month"
+    }
+];
 
 export default function Home() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -119,14 +207,7 @@ export default function Home() {
             
             {/* Hero Visual/Image Logic */}
             <div className="hero-visual" style={{position: 'relative'}}>
-                <div style={{
-                    width: '100%',
-                    height: '500px', 
-                    background: 'url(/assets/logo.avif) no-repeat center',
-                    backgroundSize: 'contain',
-                    filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.1))',
-                    opacity: 0.8
-                }}></div>
+                <div className="hero-image-container"></div>
             </div>
         </div>
       </section>
@@ -136,94 +217,21 @@ export default function Home() {
         <div className="container">
             <h2>Our <span>Premium</span> Security Services</h2>
             <p style={{maxWidth: '700px', marginBottom: '40px'}}>
-                We don't just provide guards; we provide peace of mind. Our personnel are rigorously trained in conflict resolution, 
-                emergency response, and surveillance protocols to ensure comprehensive protection.
+                We don't just provide guards; we provide peace of mind. Our personnel are rigorously trained to ensure comprehensive protection.
             </p>
 
             <div className="bento-grid">
-                {/* Service 1 */}
-                <div className="bento-card">
-                    <div className="icon-wrapper"><i className="fas fa-user-shield"></i></div>
-                    <h3>Security Guards</h3>
-                    <p className="desc">
-                        Our unarmed security guards are the first line of defense. Selected for their alertness and integrity, 
-                        they manage access control, monitor surveillance systems, and patrol premises to deter unauthorized activity.
-                    </p>
-                    <div className="ideal-for">
-                        <strong>Ideal For:</strong>
-                        Retail Stores, Corporate Offices, Residential Societies
+                {SERVICES_DATA.map((service, index) => (
+                    <div className="bento-card" key={index}>
+                        <div className="icon-wrapper">
+                            <i className={`fas ${service.icon || 'fa-shield-alt'}`}></i>
+                        </div>
+                        <h3>{service.title}</h3>
+                        <p className="desc">
+                            {service.description || "Professional security services tailored to your specific requirements, ensuring safety and peace of mind 24/7."}
+                        </p>
                     </div>
-                </div>
-
-                {/* Service 2 */}
-                <div className="bento-card">
-                    <div className="icon-wrapper"><i className="fas fa-shield-alt"></i></div>
-                    <h3>Armed Security</h3>
-                    <p className="desc">
-                        Licensed and highly-trained armed personnel for high-risk environments. Our guards are experts in 
-                        weapon safety and tactical response, providing a powerful deterrent against criminal threats.
-                    </p>
-                    <div className="ideal-for">
-                        <strong>Ideal For:</strong>
-                        Banks, Jewelry Showrooms, CIT (Cash-in-Transit)
-                    </div>
-                </div>
-
-                {/* Service 3 */}
-                <div className="bento-card">
-                    <div className="icon-wrapper"><i className="fas fa-user-tie"></i></div>
-                    <h3>VIP & Executive Protection</h3>
-                    <p className="desc">
-                         Discreet and elite protection services for high-net-worth individuals, executives, and celebrities. 
-                         Our Personal Security Officers (PSOs) are trained in route planning, threat assessment, and defensive driving.
-                    </p>
-                    <div className="ideal-for">
-                        <strong>Ideal For:</strong>
-                        CEOs, Politicians, VIP Events
-                    </div>
-                </div>
-
-                {/* Service 4 */}
-                <div className="bento-card">
-                    <div className="icon-wrapper"><i className="fas fa-industry"></i></div>
-                    <h3>Industrial & Factory Security</h3>
-                    <p className="desc">
-                        Specific protocols for large-scale industrial sites. We implement gate management, worker frisking, 
-                        material inward/outward registers, and perimeter patrolling to prevent theft and sabotage.
-                    </p>
-                    <div className="ideal-for">
-                        <strong>Ideal For:</strong>
-                        Factories, Warehouses, Construction Sites
-                    </div>
-                </div>
-
-                 {/* Service 5 */}
-                 <div className="bento-card">
-                    <div className="icon-wrapper"><i className="fas fa-home"></i></div>
-                    <h3>Residential Security</h3>
-                    <p className="desc">
-                        24/7 safety for your home and family. Our guards are trained to be courteous yet vigilant, managing 
-                        visitor logs and ensuring a secure environment for apartment complexes and private villas.
-                    </p>
-                    <div className="ideal-for">
-                        <strong>Ideal For:</strong>
-                        Apartments, Gated Communities, Private Villas
-                    </div>
-                </div>
-
-                {/* Service 6 */}
-                <div className="bento-card">
-                    <div className="icon-wrapper"><i className="fas fa-calendar-check"></i></div>
-                    <h3>Event Security Management</h3>
-                    <p className="desc">
-                        Comprehensive crowd control and safety management for weddings, corporate events, and concerts. 
-                        We handle guest screening, VIP escorting, and emergency evacuation planning.
-                    </p>
-                    <div className="ideal-for">
-                        <strong>Ideal For:</strong>
-                        Weddings, Corporate Functions, Public Gatherings
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
       </section>
@@ -258,6 +266,9 @@ export default function Home() {
               </div>
           </div>
       </section>
+
+      {/* Gallery Carousel Section */}
+      <Carousel />
 
       {/* About Section */}
       <section id="about">
