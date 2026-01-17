@@ -274,8 +274,6 @@ section.visible {
     gap: 50px;
 }
 
-.hero-visual {}
-
 .hero-image-container {
     width: 100%;
     height: 500px;
@@ -291,6 +289,13 @@ section.visible {
 
 .hero-text h1 span {
     color: var(--color-accent);
+}
+
+.hero-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .stat-row {
@@ -556,6 +561,23 @@ footer .container {
         margin-bottom: 16px;
     }
 
+    .hero-buttons {
+        flex-wrap: nowrap;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-outline {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+    }
+
     .hero-content {
         gap: 30px;
     }
@@ -568,11 +590,179 @@ footer .container {
 
     .stat-row {
         flex-direction: column;
-        gap: 20px;
+        gap: 10px;
     }
 
     .contact-info,
     .contact-form-container {
         padding: 30px 20px;
     }
+}
+
+/* Carousel Styles (Re-added) */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 60px 0;
+    background: var(--color-bg-primary);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    /* JavaScript handles the scroll, but allow manual too */
+    white-space: nowrap;
+    padding: 0 20px;
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    cursor: grab;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-track:active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    width: 400px;
+    height: 300px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.02);
+}
+
+.carousel-item:hover img {
+    transform: scale(1.1);
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-overlay i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.carousel-item:hover .carousel-overlay {
+    opacity: 1;
+}
+
+/* Lightbox */
+.lightbox-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    max-height: 80vh;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 4px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2001;
+    transition: transform 0.2s;
+}
+
+.lightbox-close:hover {
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+    transition: background 0.3s;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox-caption {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-primary);
 }

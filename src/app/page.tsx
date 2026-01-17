@@ -180,7 +180,7 @@ export default function Home() {
                     armed protection, and industrial surveillance. Trusted by Kanpur's leading 
                     businesses and residential estates for over two decades.
                 </p>
-                <div style={{marginTop: '40px', display: 'flex', gap: '20px', flexWrap: 'wrap'}}>
+                <div className="hero-buttons">
                     <button className="btn-primary" onClick={() => scrollToSection('contact')}>
                         Secure Your Assets
                     </button>
@@ -211,7 +211,8 @@ export default function Home() {
             </div>
         </div>
       </section>
-
+{/* Gallery Carousel Section */}
+      <Carousel />
       {/* Services Section (Bento Grid) */}
       <section id="services">
         <div className="container">
@@ -267,8 +268,7 @@ export default function Home() {
           </div>
       </section>
 
-      {/* Gallery Carousel Section */}
-      <Carousel />
+      
 
       {/* About Section */}
       <section id="about">

@@ -66,6 +66,8 @@ export default function Carousel() {
         className="carousel-container"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
       >
         <div className="carousel-track" ref={scrollContainerRef}>
           {/* Duplicate images to create seamless infinite scroll */}
